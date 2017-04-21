@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="快速入门" link_to="toc.xml#introduce"> 
+	<topic label="创建ICD工程" href="html/introduce/createICDProject.html"> 
+	</topic>
+	<topic label="创建测试工程" href="html/introduce/createTestProject.html">
+	</topic> 
+	<topic label="测试用例" href="html/introduce/testCase.html">
+	</topic> 
+	<topic label="用例执行" href="html/introduce/runTestCase.html">
+	</topic> 
+	<topic label="测试结果" href="html/introduce/showTestCase.html">
+	</topic> 
+	<topic label="用例监控" href="html/introduce/monitorTestCase.html">
+	</topic> 
+</toc>

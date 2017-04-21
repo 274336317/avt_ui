@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SqliteConvert
+Bundle-SymbolicName: com.coretek.spte.result.datahandler;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.coretek.sqliteconvert.DatabasePlugin
+Bundle-Vendor: CORETEK
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.coretek.common.template;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.5.0",
+ com.coretek.common.utils;bundle-version="1.0.0",
+ com.coretek.common.logging;bundle-version="1.0.0",
+ com.coretek.spte.cfg;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/jdbc-v056.jar,
+ .
+Export-Package: 
+ com.coretek.spte.parser,
+ com.coretek.spte.ui.model,
+ com.coretek.sqliteconvert

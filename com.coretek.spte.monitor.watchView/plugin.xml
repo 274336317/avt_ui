@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.coretek.tools.ide.ui"
+            class="com.coretek.spte.monitorview.views.MonitorDomainView"
+            icon="icons/result.gif"
+            id="com.coretek.testcase.monitorView.monitorDomainView"
+            name="消息监视视图"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.coretek.spte.msgWatchView.actionSet"
+            label="label"
+            visible="true">
+         <action
+               class="com.coretek.spte.monitorview.actions.OpenMonitorDomainView"
+               id="com.coretek.spte.monitorview.OpenMonitorDomainView"
+               label="打开消息监视视图"
+               menubarPath="window/additions"
+               style="push">
+         </action>
+      </actionSet>
+   </extension>
+ 	<extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.coretek.sequence.rcp.sptePref"
+            class="com.coretek.spte.monitorview.preference.MonitorNodePreferencePage"
+            id="com.coretek.spte.monitorview.preference.monitorNodePreferencePage"
+            name="消息监控视图配置">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.coretek.spte.monitorview.preference.MonitorNodePreferenceInitializer"/>
+   </extension>
+</plugin>

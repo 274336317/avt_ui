@@ -1,0 +1,74 @@
+
+03/02/17 11:13:55   LINFO     系统大小端(little),与GUI套接字交互使用端口号(8888)
+03/02/17 11:13:55   LINFO     SPTEReport::SendData the data is: 1,^done,{reason="成功设置环境变量"}
+
+03/02/17 11:13:55   LINFO     TcpClient::Connect:连接gui成功
+03/02/17 11:13:55   LINFO     TcpClient::Run:启动与GUI交互线程,将消息通过套接字传递给GUI
+03/02/17 11:13:55   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(0)
+03/02/17 11:13:55   LINFO     TcpClient::Run从缓存中获取消息为空
+03/02/17 11:13:55   LINFO     Monitor::startRecvMessage: 启动执行环境交互线程和GUI交互线程
+03/02/17 11:13:56   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(0)
+03/02/17 11:13:56   LINFO     TcpClient::Run从缓存中获取消息为空
+03/02/17 11:13:56   LINFO     runCmdThreadBody: 启动处理运行命令线程
+03/02/17 11:13:56   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(0)
+03/02/17 11:13:56   LINFO     TcpClient::Run从缓存中获取消息为空
+03/02/17 11:13:56   LINFO     测试用列共有消息5条， 发送消息1条，接收消息4条
+03/02/17 11:13:56   LINFO     Monitor::addGUIMsg:将数据放入GUI通信缓存，缓存共有 1 条消息：					timestamp(0), sorceId(851), topicId(1)
+03/02/17 11:13:56   LINFO     发送消息成功：Monitor::sendMessage: time: 206732, srcId:851, topicId:1
+03/02/17 11:13:56   LINFO     Monitor::getRecvMessage: 接收数据缓存队列为空
+03/02/17 11:13:56   LERROR    CommonRecvMessage::done: 从接收缓存队列中获取接收数据对象失败
+03/02/17 11:13:56   LINFO     Monitor::getRecvMessage: 接收数据缓存队列为空
+03/02/17 11:13:56   LERROR    CommonRecvMessage::done: 从接收缓存队列中获取接收数据对象失败
+03/02/17 11:13:56   LINFO     recv from server ,time: 206794, topicId:1, sorcId:861, len:64
+03/02/17 11:13:56   LINFO     Monitor::getRecvMessage: 接收数据缓存队列为空
+03/02/17 11:13:56   LERROR    CommonRecvMessage::done: 从接收缓存队列中获取接收数据对象失败
+03/02/17 11:13:56   LINFO     Monitor::recvMessage:预期接收消息放入接收消息缓存队列，成功，							timestamp(94), topicId(1), srcId(861)
+03/02/17 11:13:56   LINFO     将消息以执行发送
+03/02/17 11:13:56   LINFO     Monitor::getRecvMessage:从接收数据缓存队列中获取recv对象：						timestamp:94, sorceId:861, topicId:1
+03/02/17 11:13:56   LINFO     Monitor::addGUIMsg:将数据放入GUI通信缓存，缓存共有 2 条消息：					timestamp(94), sorceId(861), topicId(1)
+03/02/17 11:13:56   LINFO     CommonRecvMessage::done：消息是预期普通接收消息,timestamp:94, topicId: 1, srcId: 861
+03/02/17 11:13:56   LINFO     recv from server ,time: 206857, topicId:1, sorcId:861, len:64
+03/02/17 11:13:56   LINFO     Monitor::getRecvMessage: 接收数据缓存队列为空
+03/02/17 11:13:56   LERROR    CommonRecvMessage::done: 从接收缓存队列中获取接收数据对象失败
+03/02/17 11:13:56   LINFO     Monitor::recvMessage:预期接收消息放入接收消息缓存队列，成功，							timestamp(172), topicId(1), srcId(861)
+03/02/17 11:13:56   LINFO     将消息以执行发送
+03/02/17 11:13:56   LINFO     Monitor::getRecvMessage:从接收数据缓存队列中获取recv对象：						timestamp:172, sorceId:861, topicId:1
+03/02/17 11:13:56   LINFO     Monitor::addGUIMsg:将数据放入GUI通信缓存，缓存共有 3 条消息：					timestamp(172), sorceId(861), topicId(1)
+03/02/17 11:13:56   LINFO     CommonRecvMessage::done：消息是预期普通接收消息,timestamp:172, topicId: 1, srcId: 861
+03/02/17 11:13:57   LINFO     recv from server ,time: 206935, topicId:1, sorcId:861, len:64
+03/02/17 11:13:57   LINFO     Monitor::getRecvMessage: 接收数据缓存队列为空
+03/02/17 11:13:57   LERROR    CommonRecvMessage::done: 从接收缓存队列中获取接收数据对象失败
+03/02/17 11:13:57   LINFO     Monitor::recvMessage:预期接收消息放入接收消息缓存队列，成功，							timestamp(250), topicId(1), srcId(861)
+03/02/17 11:13:57   LINFO     将消息以执行发送
+03/02/17 11:13:57   LINFO     Monitor::getRecvMessage:从接收数据缓存队列中获取recv对象：						timestamp:250, sorceId:861, topicId:1
+03/02/17 11:13:57   LINFO     Monitor::addGUIMsg:将数据放入GUI通信缓存，缓存共有 4 条消息：					timestamp(250), sorceId(861), topicId(1)
+03/02/17 11:13:57   LINFO     CommonRecvMessage::done：消息是预期普通接收消息,timestamp:250, topicId: 1, srcId: 861
+03/02/17 11:13:57   LINFO     recv from server ,time: 207013, topicId:1, sorcId:861, len:64
+03/02/17 11:13:57   LINFO     Monitor::getRecvMessage: 接收数据缓存队列为空
+03/02/17 11:13:57   LERROR    CommonRecvMessage::done: 从接收缓存队列中获取接收数据对象失败
+03/02/17 11:13:57   LINFO     Monitor::recvMessage:预期接收消息放入接收消息缓存队列，成功，							timestamp(328), topicId(1), srcId(861)
+03/02/17 11:13:57   LINFO     将消息以执行发送
+03/02/17 11:13:57   LINFO     Monitor::getRecvMessage:从接收数据缓存队列中获取recv对象：						timestamp:328, sorceId:861, topicId:1
+03/02/17 11:13:57   LINFO     Monitor::addGUIMsg:将数据放入GUI通信缓存，缓存共有 5 条消息：					timestamp(328), sorceId(861), topicId(1)
+03/02/17 11:13:57   LINFO     CommonRecvMessage::done：消息是预期普通接收消息,timestamp:328, topicId: 1, srcId: 861
+03/02/17 11:13:57   LINFO     SPTEReport::SendData the data is: 2,^done,{reason="消息执行成功"}
+
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(5)
+03/02/17 11:13:57   LINFO     GUI通信:发给gui数据 topicId(1), srcId(851)
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(4)
+03/02/17 11:13:57   LINFO     GUI通信:发给gui数据 topicId(1), srcId(861)
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(3)
+03/02/17 11:13:57   LINFO     GUI通信:发给gui数据 topicId(1), srcId(861)
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(2)
+03/02/17 11:13:57   LINFO     GUI通信:发给gui数据 topicId(1), srcId(861)
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(1)
+03/02/17 11:13:57   LINFO     GUI通信:发给gui数据 topicId(1), srcId(861)
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(0)
+03/02/17 11:13:57   LINFO     TcpClient::Run从缓存中获取消息为空
+03/02/17 11:13:57   LINFO     CMDParser::parseCMD：exit command 
+03/02/17 11:13:57   LINFO     SPTEReport::SendData the data is: 3,^done,{reason="EXIT"}
+
+03/02/17 11:13:57   LINFO     用户发送exit命令，希望退出该进程.....
+03/02/17 11:13:57   LINFO     Monitor::stopGUIThread:设置GUI交互线程结束.....
+03/02/17 11:13:57   LINFO     Monitor::getMessage:GUI缓存队列中存在消息条数(0)
+03/02/17 11:13:57   LINFO     TcpClient::Run从缓存中获取消息为空

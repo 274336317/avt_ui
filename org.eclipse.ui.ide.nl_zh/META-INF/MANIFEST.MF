@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-Name: org.eclipse.ui.ide Chinese (Simplified) NLS Support
+Bundle-SymbolicName: org.eclipse.ui.ide.nl_zh ;singleton=true
+Bundle-Version: 3.6.0.v20110723071525
+Bundle-ClassPath: org.eclipse.ui.ide.nl_zh_3.6.0.v20110723071525.jar
+Bundle-Vendor: Eclipse.org
+Fragment-Host: org.eclipse.ui.ide

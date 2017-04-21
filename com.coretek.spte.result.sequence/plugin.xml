@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="com.coretek.tools.ide.ui"
+            class="com.coretek.spte.monitor.SequenceViewPart"
+            fastViewWidthRatio="0.75"
+            icon="icons/403_timingDiagram.gif"
+            id="com.coretek.spte.monitor.monitorView"
+            name="时序图"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="com.coretek.spte.monitor.viewContribution"
+            targetID="com.coretek.spte.monitor.monitorView">
+         <action
+               class="com.coretek.spte.monitor.actions.SaveAsDelegate"
+               icon="icons/save.png"
+               id="com.coretek.spte.monitor.action1"
+               label="保存为测试用例"
+               style="push"
+               toolbarPath="additions"
+               tooltip="保存为测试用例">
+         </action>
+        
+         <!--<action
+               class="com.coretek.spte.monitor.actions.StopActionDelegate"
+               enablesFor="+"
+               icon="icons/stop.png"
+               id="com.coretek.spte.monitor.stopAction"
+               label="停止"
+               style="push"
+               toolbarPath="additions"
+               tooltip="停止监控">
+         </action>-->
+         
+         
+         <action
+               class="com.coretek.spte.monitor.actions.CfgActionDelegate"
+               icon="icons/复件 config.gif"
+               id="com.coretek.spte.monitor.configAction"
+               label="配置111"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         
+         
+         <action
+               class="com.coretek.spte.monitor.SwitchToNoTimeSequenceActionDelegate"
+               id="com.coretek.spte.monitor.noTimeScale"
+               label="无时间刻度"
+               menubarPath="com.coretek.spte.monitor.switch/additions"
+               style="push">
+         </action>
+         <menu
+               id="com.coretek.spte.monitor.switch"
+               label="显示转换"
+               path="switch">
+         </menu>
+         <action
+               class="com.coretek.spte.monitor.SwitchToTimeScaleDelegate"
+               id="com.coretek.spte.monitor.withTimeScale"
+               label="显示时间刻度"
+               menubarPath="com.coretek.spte.monitor.switch/additions"
+               style="push">
+         </action>
+         
+         
+         <action
+               class="com.coretek.spte.monitor.NextErrorDelegate"
+               disabledIcon="icons/next_disabled.png"
+               icon="icons/next_enabled.png"
+               id="com.coretek.spte.monitor.NextError"
+               label="显示下一条错误消息"
+               style="pulldown"
+               toolbarPath="additions"
+               tooltip="显示下一条错误消息">
+         </action>
+         <action
+               class="com.coretek.spte.monitor.LastErrorDelegate"
+               disabledIcon="icons/last_disabled.png"
+               icon="icons/last_enabled.png"
+               id="com.coretek.spte.monitor.LastError"
+               label="显示上一条错误消息"
+               style="pulldown"
+               toolbarPath="additions"
+               tooltip="显示上一条错误消息">
+         </action>
+      </viewContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.coretek.spte.monitor.SequencePlugin"></startup>
+   </extension>
+
+</plugin>

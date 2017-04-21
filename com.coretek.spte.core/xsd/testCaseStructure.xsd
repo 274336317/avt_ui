@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="testCase">
+    <xs:annotation>
+      <xs:documentation>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="testedModule">
+          <xs:complexType>
+            <xs:attributeGroup ref="moduleAttribute" />
+          </xs:complexType>
+        </xs:element>
+        <xs:any namespace="##local" processContents="strict" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="requireNum" type="xs:string" />
+      <xs:attribute name="regulation" type="xs:string" />
+      <xs:attribute name="procedure" type="xs:string" />
+      <xs:attribute name="des" type="xs:string" />
+      <xs:attribute name="constrain" type="xs:string" />
+      <xs:attribute name="condition" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="refcase">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:string" use="required" />
+      <xs:attribute name="uuid" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="timeSpan">
+    <xs:complexType>
+      <xs:attribute name="value" type="xs:string" use="required" />
+      <xs:attribute name="uuid" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="signals" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="field" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attributeGroup ref="fieldAttribute" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="ID" type="xs:string" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="size" type="xs:int" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="period" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="signals" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="field" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attributeGroup ref="fieldAttribute" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="ID" type="xs:string" use="required" />
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="size" type="xs:int" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="value" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="description" minOccurs="0" />
+      </xs:sequence>
+      <xs:attributeGroup ref="messageAttribute" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="messageContentType">
+    <xs:choice>
+      <xs:element name="field" nillable="true" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:anySimpleType">
+              <xs:attributeGroup ref="fieldAttribute" />
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:attributeGroup name="moduleAttribute">
+    <xs:attribute name="id" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="versionId" type="xs:string" use="required" />
+  </xs:attributeGroup>
+  <xs:attributeGroup name="fieldAttribute">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="width" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="offset" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="id" type="xs:string" use="required" />
+    <xs:attribute name="lsb" type="xs:string" use="optional" />
+    <xs:attribute name="msb" type="xs:string" use="optional" />
+    <xs:attribute name="max" type="xs:string" use="optional" />
+    <xs:attribute name="min" type="xs:string" use="optional" />
+    <xs:attribute name="signed" type="xs:string" use="optional" />
+    <xs:attribute name="unitCode" type="xs:string" use="optional" />
+    <xs:attribute name="unitName" type="xs:string" use="optional" />
+  </xs:attributeGroup>
+  <xs:attributeGroup name="messageAttribute">
+    <xs:attribute name="id" type="xs:string" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="qos" type="xs:int" use="required" />
+    <xs:attribute name="direction" type="DerictionType" use="required" />
+    <xs:attribute name="moduleId" type="xs:string" use="required" />
+    <xs:attribute name="width" type="xs:unsignedByte" use="required" />
+    <xs:attribute name="uuid" type="xs:string" use="required" />
+    <xs:attribute name="period" type="xs:string" use="optional" />
+    <xs:attribute name="parallel" type="xs:string" use="optional" />
+    <xs:attribute name="background" type="xs:string" use="optional" />
+    <xs:attribute name="times" type="xs:string" use="optional" />
+    <xs:attribute name="amendValue" type="xs:string" use="optional" />
+    <xs:attribute name="blockId" type="xs:string" use="optional" />
+    <xs:attribute name="transType" type="xs:string" use="optional" />
+    <xs:attribute name="desID" type="xs:string" use="optional" />
+    <xs:attribute name="sourceID" type="xs:string" use="optional" />
+  </xs:attributeGroup>
+  <xs:simpleType name="DerictionType">
+    <xs:annotation>
+      <xs:documentation>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="send" />
+      <xs:enumeration value="recv" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

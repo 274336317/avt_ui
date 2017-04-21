@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.coretek.sequence.rcp.sptePref"
+            class="com.coretek.spte.cfg.JudgeRulePreferencePage"
+            id="com.coretek.sequence.rcp.judgeRulePage"
+            name="%page.name">
+      </page>
+      <page
+            class="com.coretek.spte.cfg.ExecutionPreferencePage"
+            id="com.coretek.spte.database.socketPage"
+            name="%page.name.0">
+      </page>
+      <page
+            category="com.coretek.spte.database.socketPage"
+            class="com.coretek.spte.cfg.MonitorCacheControlPage"
+            id="com.coretek.spte.database.monitorCachePage"
+            name="%page.name.1">
+      </page>
+   </extension>
+    <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.coretek.spte.database.socketPage"
+            class="com.coretek.spte.cfg.ReportPreferencePage"
+            id="com.coretek.spte.cfg.ReportPreferencePage"
+            name="%page.name.2">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.coretek.spte.cfg.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

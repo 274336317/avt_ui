@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="com.coretek.tools.ide.ui"
+            class="com.coretek.testcase.curve.views.CurveView"
+            icon="icons/sample.gif"
+            id="com.coretek.tools.curve.views.CurveView"
+            name="曲线视图"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.coretek.tools.ide.ui.MonitorPerspective">
+         <view
+               closeable="true"
+               id="com.coretek.tools.curve.views.CurveView"
+               minimized="true"
+               moveable="true"
+               ratio="0.2"
+               relationship="stack"
+               relative="com.coretek.tools.curve.views.CurveView"
+               showTitle="true"
+               standalone="false"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.coretek.testcase.curve.actionSet"
+            label="label"
+            visible="false">
+         <action
+               class="com.coretek.testcase.curve.actions.OpenCurveViewAction"
+               icon="icons/sample.gif"
+               id="com.coretek.tools.curve.openCurveView"
+               label="打开曲线视图"
+               menubarPath="window/addtions"
+               style="push"
+               toolbarPath="Normal/addtions">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.coretek.sequence.rcp.sptePref"
+            class="com.coretek.testcase.curve.preference.CurvePreferencePage"
+            id="com.coretek.testcase.curve.preference.curvePreferencePage"
+            name="曲线视图配置">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.coretek.testcase.curve.preference.CurvePreferenceInitializer"/>
+   </extension>
+
+</plugin>

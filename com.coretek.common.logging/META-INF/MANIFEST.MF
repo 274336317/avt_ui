@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Logging
+Bundle-SymbolicName: com.coretek.common.logging;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.coretek.common.logging.LoggingPlugin
+Bundle-Vendor: CORETEK
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.5.0",
+ org.eclipse.ui;bundle-version="3.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.coretek.common.logging

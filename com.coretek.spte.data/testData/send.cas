@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testCase name="11.cas" >
+    <version>A</version>
+    <description >
+    <criterion></criterion>
+    <expected></expected>
+    <input></input>
+    <REQ></REQ>
+    <restriction></restriction>
+    <condition></condition>
+    <procedure></procedure>
+    </description>
+    <ICD >
+    <file>icd/★非密★jxx-icdb sample.xml</file>
+    <version>A</version>
+    </ICD>
+    <testObjects level="22" >
+    <object id="2" name="显示刷新" >
+    </object>
+    </testObjects>
+    <criterion >
+    <unexpected>String</unexpected>
+    </criterion>
+    <messageBlock >
+    <message periodCount="0" parallel="false" direction="send" width="0" srcId="3" periodDuration="0" amendValue="" id="22000001" modelType="FunctionNodeMsg" sendDuration="10" desId="" name="22/way_cput-display/ENUM_TPC_TEST" background="false" topicId="2" uuid="ed1d0e03-7501-4d36-9c50-638a73a68d8f" >
+    <field id="ENUM_TEST_SGNL" offsetword="0" signed="false" width="32" name="枚举测试信号" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_2" offsetword="2" signed="false" width="4" name="枚举测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST" offsetword="4" signed="false" width="32" name="枚举信号测试" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_SGN_GRP" offsetword="6" signed="false" width="1" name="枚举类型信号组测试" offsetbit="0" lsb="" msb="" >
+    <field id="ENUM_TEST_SGNL" offsetword="0" signed="false" width="32" name="枚举测试信号" offsetbit="0" lsb="" msb="" >
+    <value>1</value>
+    </field>
+    </field>
+    <field id="INT_TEST_2" offsetword="9" signed="false" width="32" name="整型测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="UINT16" offsetword="10" signed="false" width="16" name="16位整型" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="char_test" offsetword="11" signed="false" width="8" name="字符测试信号" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="sigGroupTest" offsetword="12" signed="false" width="1" name="信号组测试" offsetbit="0" lsb="" msb="" >
+    <field id="BOOL_TEST_1" offsetword="0" signed="false" width="32" name="布尔测试1" offsetbit="0" lsb="" msb="" >
+    <value>1</value>
+    </field>
+    </field>
+    </message>
+    <message periodCount="1" parallel="false" direction="send" width="0" srcId="1" periodDuration="150" amendValue="0" id="22000002" modelType="FunctionNodeMsg" sendDuration="100" desId="" name="22/dcss-G001/dispCtrlCmd" background="false" topicId="1" uuid="62581cf8-b04c-4534-b906-baa38e826211" >
+    <period value="1" >
+    <field id="CTRL_CMD" offsetword="0" signed="false" width="32" name="控制命令" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_1" offsetword="1" signed="false" width="2" name="枚举测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_2" offsetword="2" signed="false" width="4" name="枚举测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_1" offsetword="3" signed="false" width="32" name="布尔测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_2" offsetword="4" signed="false" width="8" name="布尔测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_1" offsetword="5" signed="false" width="16" name="整型测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_2" offsetword="6" signed="false" width="32" name="整型测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="FLOAT_TEST_LONG" offsetword="7" signed="false" width="32" name="浮点测试_经度" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    </period>
+    </message>
+    <message periodCount="0" parallel="false" direction="send" width="0" srcId="1" periodDuration="0" amendValue="" id="22000003" modelType="FunctionNodeMsg" sendDuration="100" desId="" name="22/dcss-display/dispCtrlCmd" background="false" topicId="1" uuid="cc7b5743-1261-4c05-aad6-6c0d5536584a" >
+    <field id="CTRL_CMD" offsetword="0" signed="false" width="32" name="控制命令" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_1" offsetword="1" signed="false" width="2" name="枚举测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_2" offsetword="2" signed="false" width="4" name="枚举测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_1" offsetword="3" signed="false" width="32" name="布尔测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_2" offsetword="4" signed="false" width="8" name="布尔测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_1" offsetword="5" signed="false" width="16" name="整型测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_2" offsetword="6" signed="false" width="32" name="整型测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="FLOAT_TEST_LONG" offsetword="7" signed="false" width="32" name="浮点测试_经度" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    </message>
+    <message periodCount="0" parallel="false" direction="send" width="0" srcId="1" periodDuration="0" amendValue="" id="22000005" modelType="FunctionNodeMsg" sendDuration="100" desId="" name="22/dcss-display/dispCtrlCmd" background="false" topicId="1" uuid="bb05951d-82af-479e-9edc-8cadbafa164d" >
+    <field id="CTRL_CMD" offsetword="0" signed="false" width="32" name="控制命令" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_1" offsetword="1" signed="false" width="2" name="枚举测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="ENUM_TEST_2" offsetword="2" signed="false" width="4" name="枚举测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_1" offsetword="3" signed="false" width="32" name="布尔测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_2" offsetword="4" signed="false" width="8" name="布尔测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_1" offsetword="5" signed="false" width="16" name="整型测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_2" offsetword="6" signed="false" width="32" name="整型测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="FLOAT_TEST_LONG" offsetword="7" signed="false" width="32" name="浮点测试_经度" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    </message>
+    </messageBlock>
+    </testCase>

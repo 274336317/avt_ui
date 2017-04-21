@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.coretek.tools.ide.ui"
+            class="com.coretek.spte.monitorlogview.views.MonitorLogViewPart"
+            icon="icons/result.gif"
+            id="com.coretek.spte.monitorLog.view"
+            name="消息日志视图"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="com.coretek.spte.monitorLogView.actionSet"
+            label="label"
+            visible="true">      
+         <action
+               class="com.coretek.spte.monitorlogview.actions.OpenMonitorLogViewPart"
+               id="com.coretek.spte.monitorResult.view"
+               label="打开消息日志视图"
+               menubarPath="window/additions"
+               style="push">
+         </action>        
+      </actionSet>
+   </extension>  
+</plugin>

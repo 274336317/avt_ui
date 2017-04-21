@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	
+	<extension point="org.eclipse.ui.views"> <!-- 扩展视图扩展点 -->
+		<category name="测试用例" id="com.coretek.tools.ide.ui">
+		</category>
+		<view name="项目管理视图" icon="icons/200_projectManage.gif"
+			category="com.coretek.tools.ide.ui"
+			class="com.coretek.testcase.projectView.views.ProjectView"
+			id="com.coretek.tools.ide.ui.DiagramView">
+		</view>
+	</extension>
+	
+	<extension name="projectWizard" point="org.eclipse.ui.newWizards">
+		<wizard category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+			class="com.coretek.testcase.projectView.projectwizard.page.NewICDProjectWizard"
+			finalPerspective="com.coretek.tools.ide.ui.DiagramPerspective"
+			icon="icons/etool16/201_icdProject.gif"
+			id="com.coretek.testcase.projectViewi.newICDProject" name="ICD工程"
+			project="true">
+		</wizard>
+		<wizard category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+			class="com.coretek.testcase.projectView.projectwizard.page.TestingProjectWizard"
+			finalPerspective="com.coretek.tools.ide.ui.DiagramPerspective"
+			icon="icons/etool16/203_testProject.gif"
+			id="com.coretek.tools.ide.projectWizard.testingWizard" name="测试工程"
+			project="true">
+		</wizard>
+		<wizard category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+			class="com.coretek.tools.ide.ui.action.testcase.TestSuiteNewWizard"
+			finalPerspective="com.coretek.tools.ide.ui.DiagramPerspective"
+			hasPages="true" icon="icons/etool16/205_testSets.gif"
+			id="com.coretek.testcase.projectView.TestSuiteNewWizard" name="测试集"
+			project="true">
+			<selection class="org.eclipse.core.resources.IContainer">
+			</selection>
+		</wizard>
+		<wizard category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+			class="com.coretek.tools.ide.ui.action.testcase.TestCaseNewWizard"
+			finalPerspective="com.coretek.tools.ide.ui.DiagramPerspective"
+			hasPages="true" icon="icons/etool16/204_testCase.gif"
+			id="com.coretek.testcase.projectView.TestCaseNewWizard" name="测试用例"
+			project="true">
+			<selection class="org.eclipse.core.resources.IFolder">
+			</selection>
+		</wizard>
+		<wizard category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+			class="com.coretek.testcase.projectView.projectwizard.page.BasicNewFolderResourceWizard"
+			finalPerspective="com.coretek.tools.ide.ui.DiagramPerspective"
+			hasPages="true" icon="icons/etool16/newfolder_wiz.gif"
+			id="com.coretek.testcase.projectView.NewFolder" name="文件夹"
+			project="true">
+			<selection class="org.eclipse.core.resources.IContainer">
+			</selection>
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.perspectiveExtensions">
+		<perspectiveExtension
+			targetID="com.coretek.tools.ide.ui.DiagramPerspective">
+		</perspectiveExtension>
+	</extension>
+	
+	<extension point="org.eclipse.help.contexts">
+		<contexts file="contexts.xml">
+		</contexts>
+	</extension>
+	
+	<extension point="org.eclipse.ui.perspectives">
+		<perspective
+			class="com.coretek.tools.ide.internal.ui.SequencePerspectiveFactory"
+			icon="icons/118_viewCase.gif"
+			id="com.coretek.tools.ide.ui.DiagramPerspective" name="用例透视图">
+		</perspective>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<!--
+		<wizard
+		name="文件夹"
+		icon="icons/etool16/newfolder_wiz.gif"
+		category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+		class="org.eclipse.ui.wizards.newresource.BasicNewFolderResourceWizard"
+		id="com.coretek.tools.ide.ui.new.folder">
+		<description>
+		%NewWizards.folder.description
+		</description>
+		<selection
+		class="org.eclipse.core.resources.IResource">
+		</selection>
+		</wizard>
+		<wizard
+		name="文件"
+		icon="icons/etool16/newfile_wiz.gif"
+		category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+		class="org.eclipse.ui.wizards.newresource.BasicNewFileResourceWizard"
+		id="com.coretek.tools.ide.ui.new.file">
+		<description>
+		新建文件
+		</description>
+		<selection
+		class="org.eclipse.core.resources.IResource">
+		</selection>
+		</wizard>
+		-->
+		
+		<wizard name="文件" icon="icons/etool16/newfile_wiz.gif"
+			category="com.coretek.tools.gef.projectWizard.SequenceDiagram"
+			finalPerspective="com.coretek.tools.ide.ui.DiagramPerspective"
+			id="com.coretek.tools.ide.ui.wizards.NewFileCreationWizard">
+			<class
+				class="org.eclipse.ui.wizards.newresource.BasicNewFileResourceWizard">
+				<parameter name="file" value="true"/>
+			</class>
+			<description> %NewWizards.file.description </description>
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.importWizards">
+		<wizard category="org.eclipse.ui.Basic"
+			class="com.coretek.testcase.projectView.importWizards.ImportTestCaseWizard"
+			icon="icons/204_testCase.gif"
+			id="com.coretek.tools.ide.ui.importWizards.ImportTestSuite"
+			name="测试用例">
+			<description> 将一个测试用例入到现有工程当中或则一个新建的工程当中，并对导入的测试集进行合法性检查
+				</description>
+			<selection class="org.eclipse.core.resources.IContainer">
+			</selection>
+		</wizard>
+		<wizard category="org.eclipse.ui.Basic"
+			class="com.coretek.testcase.projectView.importWizards.ImportTestUnitWizard"
+			icon="icons/205_testSets.gif"
+			id="com.coretek.tools.ide.ui.importTestUnitWizard" name="测试集">
+			<description> 将一个测试用例入到现有工程当中或则一个新建的工程当中，并对导入的测试集进行合法性检查
+				</description>
+			<selection class="org.eclipse.core.resources.IContainer">
+			</selection>
+		</wizard>
+		<wizard category="org.eclipse.ui.Basic"
+			class="com.coretek.testcase.projectView.importWizards.ExternalProjectImportWizard"
+			icon="icons/coretek.gif"
+			id="com.coretek.tools.ide.ui.externalProjectImportWizard"
+			name="导入外部工程">
+			<description> 将一个已经存在的外部工程导入到工作空间当中，导入时系统会进行一些必要的检查 </description>
+		</wizard>
+		<wizard category="org.eclipse.ui.Basic"
+			class="com.coretek.testcase.projectView.importWizards.ImportICDFileWizard"
+			icon="icons/coretek.gif"
+			id="com.coretek.testcase.projectView.importWizards.ImportICDFileWizard"
+			name="导入ICD">
+			<description> 将ICD文件导入到项目中 </description>
+			<selection class="org.eclipse.core.resources.IContainer">
+			</selection>
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.exportWizards">
+		<wizard category="org.eclipse.ui.Basic"
+			class="com.coretek.testcase.projectView.exportWizard.TestCaseExportWizard"
+			icon="icons/coretek.gif" id="com.coretek.tools.ide.ui.wizard1"
+			name="导出测试用例">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.decorators">
+		<decorator adaptable="true"
+			class="com.coretek.spte.decorators.MD5LightweightLabelDecorator"
+			icon="icons/error_co.gif"
+			id="com.coretek.spte.projectView.md5ErrorDecorator" label="MD5不匹配"
+			lightweight="true" location="TOP_LEFT"
+			objectClass="org.eclipse.core.resources.IResource" state="true">
+			<description> To mark that the md5 digest attribute of some TestCase does not
+				match that of its referred icd file's md5 digest. </description>
+		</decorator>
+	</extension>
+	
+	<extension id="md5notmatchedmarker"
+		point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.core.resources.problemmarker">
+		</super>
+		<attribute name="key">
+		</attribute>
+		<attribute name="value">
+		</attribute>
+		<persistent value="false">
+		</persistent>
+		<attribute name="serverity">
+		</attribute>
+	</extension>
+	
+	<extension id="icdfilenotexistsmarker"
+		point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.core.resources.problemmarker">
+		</super>
+		<persistent value="false">
+		</persistent>
+		<attribute name="key">
+		</attribute>
+		<attribute name="value">
+		</attribute>
+	</extension>
+	
+	<extension id="testProjectNature" point="org.eclipse.core.resources.natures">
+		<runtime>
+			<run class="com.coretek.spte.natures.TestProjectNature">
+			</run>
+		</runtime>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.projectNatureImages">
+		<image icon="icons/203_testProject.gif"
+			id="com.coretek.spte.testProjectNatureImage"
+			natureId="com.coretek.spte.projectView.testProjectNature">
+		</image>
+		<image icon="icons/201_icdProject.gif"
+			id="com.coretek.spte.icdProjectNatureImage"
+			natureId="com.coretek.spte.projectView.icdProjectNature">
+		</image>
+	</extension>
+	
+	<extension id="icdProjectNature" point="org.eclipse.core.resources.natures">
+		<runtime>
+			<run class="com.coretek.spte.natures.ICDProjectNature">
+			</run>
+		</runtime>
+	</extension>
+	
+</plugin>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>测试工程</title>
+	<link  type=text/css rel=stylesheet href="css/style.css"/>
+</head>
+
+<body>
+<!--大纲-->
+<ul>
+  <li>
+	<h1><a href="#introduce">测试工程介绍</a></h1>
+  </li>
+  <li>
+	<h1><a href="#createTestPrj">创建测试工程</a></h1>
+  </li>
+  <li>
+	 <h1><a href="#importTestPrj">导入测试工程</a></h1>
+  </li>
+  <li>
+	 <h1><a href="#deleteTestPrj">删除测试工程</a></h1>
+  </li>
+</ul>
+<!--内容部分-->
+<div>
+	<h2><a name="#introduce">测试工程介绍</a></h2>
+	<span>
+		测试工程包含测试集合、测试用例以及测试结果。用户可以对测试工程进行导入、导出、删除操作。
+	</span>
+	<h2><a name="#createTestPrj">创建测试工程</a></h2>
+	<ul style="list-style:decimal">
+		<li>
+		将鼠标移动到<b>测试工程视图</b>上，然后点击鼠标邮件，从菜单上选择<b>新建->测试工程</b><BR>
+		如下图所示<br>
+		<img src="images/ICD_PRJ_MENU.gif">		
+		</li> 
+		<li>
+			在弹出到对话框中（如下图所示）输入<strong>项目名称</strong>也可以选择工程存储的路径，默认情况下工程是存储在当前的工作空间下，建议用户使用缺省位置</strong>。
+	      <div>
+				<img src="images/TEST_NEW_WIZARD.gif">		
+		  </div>
+		</li>
+		<li>
+			点击Finish按钮之后，系统会在工程视图中创建一个以用户刚刚输入的工程名字为展示名的测试工程。如下图所示
+		  <div>
+				<img src="images/TEST_PRJ.gif">		
+		  </div>
+		</li>
+	</ul>
+	<h2><a name="#importTestPrj">导入测试工程</h2>
+		<h1><a name="#importICDPrj">导入ICD工程</a></h1>
+	<ul class="UL_DECIMAL">
+	    <li>
+		    在<strong>工程视图</strong>上点击鼠标邮件，从弹出的菜单中选择<strong>导入</strong>，如下图所示
+			<div>
+				<img src="images/ImportICD.gif">			</div>
+		</li>
+		<li>
+		    从弹出的对话狂中选择<strong>常规->导入外部工程</strong>，如下图所示	
+			<div>
+			    <img src="images/ImportICDPrj.gif">			</div>	
+		</li>
+		<li>
+		    点击Next按钮，弹出导入对话框，选择浏览(R)按钮，从弹出的文件对话框中选择需要导入的<strong>测试工程</strong>，然后点击Finish按钮，如下图所示
+			  <div>
+			    <img src="images/Import_prj.gif">			
+			</div>
+			<span class="STYLE3">注意：在导入测试工程之后，如果导入的工程当中所包含的测试用例所引用的ICD文件在当前工作空间中不存在，则会利用错误图片的形式提醒用户，如果ICD文件已经被修改了，则会使用警告图片来提示用户，并会在<strong>问题视图</strong>中显示相应的信息</span>	  
+		</li>
+	</ul>
+	<div>
+		<h2><a name="#deleteTestPrj">删除测试工程</h2>
+		<p><span>
+		    在测试工程上点击鼠标右键，从弹出的菜单中选中<strong>删除</strong>菜单，	系统会弹出一个对话框询问用户是否删除，如果用户选中<strong>是</strong>则删除		</span>	工程，否则将不执行任何操作。</p>
+		<p><span class="STYLE3">注意：当用户删除了工程之后，与工程中所包含的测试用例有关的所有执行结果数据也会被删除。</span></p>
+	</div>
+</div>
+</body>
+</html>

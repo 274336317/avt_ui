@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!-- edited by coretek Inc. 2010.12.14 -->
+
+<!-- 消息结构规则文件，主要用于ICD编辑器编辑消息结构时校验和LambdaSPTE测试环境导入ICD时检验 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--消息定义的结构, 所有ICD都按照这种结构定义，并且可以用它来检验ICD定义是否正确-->
+	<xs:element name="messageStruct" type="MSG_STRUCT"/>
+	<xs:complexType name="MSG_STRUCT">
+		<xs:sequence>
+			<!--定义消息结构, 一个ICD文件可以定义一个或多个消息，即在ICD的xml文件中至少出现一个message元素-->
+			<xs:element name="message" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>消息结构规则定义,定义ICD时，请按照该文档定义的结构，并可以使用它检验ICD格式是否满足要求，schema提供了检验xml文档结构的接口，用户可以直接调用高级语言(JAVA,C#等)提供的接口来检验ICD文件(XML格式)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<!--消息的内容定义, 消息的内容按照messageContentType结构进行定义-->
+						<xs:element name="Content" type="messageContentType"/>
+						<!--消息的描述，消息描述在一个消息定义中最多只能出现一次，也可以没有-->
+						<xs:element name="Description" type="xs:string" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attributeGroup ref="messageAttribute"/>
+					<!--消息的固有属性,每个消息结构都包括这些属性-->
+				</xs:complexType>
+			</xs:element>
+			<!--定义枚举结构, 一个ICD文件可以定义0个或多个枚举，即在ICD的xml文件中可以出现0或多个enumeration元素-->
+			<xs:element name="enumeration" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<!--枚举项都通过enum来标识-->
+						<xs:element name="enum" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:int">
+										<xs:attribute name="alias" type="xs:string" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<!--
+							枚举的适用范围,即消息的某个属性取值范围，或消息字段的取值范围，
+							使用XPath表达式来确定枚举类型的取值范围
+						-->
+						<xs:element name="scope">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="xpath" type="xs:string" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="name" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--消息内容，消息内容由1个或多个字段组成-->
+	<xs:complexType name="messageContentType">
+		<xs:choice>
+			<xs:element name="field" nillable="true" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:anySimpleType">
+							<xs:attributeGroup ref="fieldAttribute"/>
+						</xs:extension>
+						<!--消息字段的内容由任何简单类型值及字段属性组成, 简单类型值可以是Byte, Int, Short等-->
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<!--消息字段的属性:
+		name：字段名称，必填
+		width: 字段宽度，单位(比特), 必填
+		offset: 字段相对于消息起始位的偏移，单位(比特),必填
+		description：字段描述，可用于描述其物理意义， 可选
+	-->
+	<xs:attributeGroup name="fieldAttribute">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="width" type="xs:unsignedByte" use="required"/>
+		<xs:attribute name="offset" type="xs:unsignedByte" use="required"/>
+		<xs:attribute name="description" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<!--消息的固有属性
+		id: 消息的编号, 必填
+		name: 消息的名字, 必填
+		qos:  消息的类型, 必填
+		srcModuleID: 发出该消息的模块编号, 必填
+		desModuleID: 接收该消息的模块编号, 必填
+		width: 消息的宽度, 单位(比特), 必填
+	-->
+	<xs:attributeGroup name="messageAttribute">
+		<xs:attribute name="id" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="qos" type="xs:int" use="required"/>
+		<xs:attribute name="srcModuleId" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="desModuleId" type="xs:unsignedInt" use="required"/>
+		<xs:attribute name="width" type="xs:unsignedByte" use="required"/>
+	</xs:attributeGroup>
+</xs:schema>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DataCompare
+Bundle-SymbolicName: com.coretek.spte.result.dataCompare
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: CORETEK
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.coretek.common.template;bundle-version="1.0.0",
+ com.coretek.common.utils;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.5.0",
+ com.coretek.common.logging;bundle-version="1.0.0",
+ org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ com.coretek.spte.cfg;bundle-version="1.0.0",
+ com.coretek.spte.result.datahandler;bundle-version="1.0.0"
+Export-Package: com.coretek.spte.dataCompare

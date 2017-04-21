@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="软件产品测试环境" topic="html/toc.html">
+   <topic label="快速入门">
+      <anchor id="introduce"/>
+   </topic>
+</toc>

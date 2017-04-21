@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testCase name="testcase1.cas" >
+    <version>A</version>
+    <description >
+    <criterion></criterion>
+    <expected></expected>
+    <input></input>
+    <REQ></REQ>
+    <restriction></restriction>
+    <condition></condition>
+    <procedure></procedure>
+    </description>
+    <ICD >
+    <file>icd/icdb-test.xml</file>
+    <version>A</version>
+    </ICD>
+    <testObjects level="22" >
+    <object id="3" name="航路解算" >
+    </object>
+    </testObjects>
+    <criterion >
+    <unexpected>String</unexpected>
+    </criterion>
+    <messageBlock >
+    <message periodCount="0" parallel="false" direction="send" width="3" srcId="2" periodDuration="0" amendValue="0" id="22000008" modelType="FunctionNodeMsg" sendDuration="10" desId="" name="22/2-3/D" background="false" topicId="8" uuid="545ba6b1-03d5-4b61-9d87-2b5c08df0b3c" >
+    <field id="UINT16" offsetword="0" signed="false" width="16" name="16位整型" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_2" offsetword="1" signed="" width="8" name="布尔测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="INT_TEST_1" offsetword="2" signed="false" width="16" name="整型测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    </message>
+    <message periodCount="0" parallel="false" direction="recv" width="3" srcId="3" periodDuration="0" amendValue="0" id="22000009" modelType="FunctionNodeMsg" sendDuration="10" desId="" name="22/3-1/E" background="false" topicId="9" uuid="dd479168-3c61-43c3-8d49-b44ec77657ab" >
+    <field id="INT_TEST_1" offsetword="0" signed="false" width="16" name="整型测试1" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="UINT16" offsetword="1" signed="false" width="16" name="16位整型" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    <field id="BOOL_TEST_2" offsetword="2" signed="" width="8" name="布尔测试2" offsetbit="0" lsb="" msb="" >
+    <value>0</value>
+    </field>
+    </message>
+    </messageBlock>
+    </testCase>

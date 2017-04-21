@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Data
+Bundle-SymbolicName: com.coretek.spte.data
+Bundle-Version: 1.0.0
+Bundle-Activator: com.coretek.spte.data.DataPlugin
+Bundle-Vendor: CORETEK
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui;bundle-version="3.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.coretek.spte.data
+Bundle-ClassPath: com.coretek.spte.data.jar

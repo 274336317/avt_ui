@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: I18n
+Bundle-SymbolicName: com.coretek.common.i18n;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.coretek.common.i18n.I18NPlugin
+Bundle-Vendor: CORETEK
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.coretek.common.utils;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.coretek.common.i18n,
+ com.coretek.common.i18n.messages
+Import-Package: org.eclipse.ui

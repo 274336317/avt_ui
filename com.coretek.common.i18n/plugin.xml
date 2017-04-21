@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.coretek.common.i18n.I18NPlugin">
+      </startup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.coretek.sequence.rcp.sptePref"
+            class="com.coretek.common.i18n.I18NWorkbenchPreferencePage"
+            id="com.coretek.common.i18n.prefPage"
+            name="显示语言">
+      </page>
+   </extension>
+
+</plugin>
