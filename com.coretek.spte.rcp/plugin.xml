@@ -9,32 +9,32 @@
             application="com.coretek.testcase.rcp.application"
             name="SPTE">
          <property
+               name="appName"
+               value="SPTE">
+         </property>
+         <property
                name="aboutText"
                value="航空电子系统验证工具演示版">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/coretek.gif,icons/alt_window_32.gif">
          </property>
          <property
                name="startupForegroundColor"
                value="000000">
          </property>
          <property
-               name="startupProgressRect"
-               value="0,353,568,15">
-         </property>
-         <property
                name="startupMessageRect"
                value="18,290,200,14">
          </property>
          <property
-               name="appName"
-               value="SPTE">
+               name="startupProgressRect"
+               value="0,353,568,15">
          </property>
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
-         </property>
-         <property
-               name="windowImages"
-               value="icons/coretek.gif,icons/alt_window_32.gif">
          </property>
       </product>
    </extension>

@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.ui,
  com.coretek.spte.cfg;bundle-version="1.0.0",
  com.coretek.spte.result.datahandler;bundle-version="1.0.0",
  com.coretek.testcase.console;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.coretek.spte.monitor.cfg,
  com.coretek.spte.monitor.command,

@@ -5,10 +5,7 @@ Bundle-SymbolicName: com.coretek.spte.result.sequence;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.coretek.spte.monitor.SequencePlugin
 Bundle-Vendor: CORETEK
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.gef;bundle-version="3.4.1",
- com.coretek.spte.monitor.manager;bundle-version="1.0.0",
+Require-Bundle: com.coretek.spte.monitor.manager;bundle-version="1.0.0",
  com.coretek.common.logging;bundle-version="1.0.0",
  com.coretek.common.utils;bundle-version="1.0.0",
  com.coretek.common.template;bundle-version="1.0.0",
@@ -16,7 +13,10 @@ Require-Bundle: org.eclipse.ui,
  com.coretek.common.i18n;bundle-version="1.0.0",
  com.coretek.spte.core;bundle-version="1.0.0",
  com.coretek.spte.common;bundle-version="1.0.0",
- com.coretek.spte.cfg;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ com.coretek.spte.cfg;bundle-version="1.0.0",
+ org.eclipse.gef;bundle-version="3.7.2",
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.ui;bundle-version="3.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.coretek.spte.monitor

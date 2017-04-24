@@ -548,7 +548,7 @@ public class DeleteResourceAction extends SelectionListenerAction
 	@SuppressWarnings("unchecked")
 	private IResource[] getSelectedResourcesArray()
 	{
-		List<IResource> selection = getSelectedResources();
+		List<? extends IResource> selection = getSelectedResources();
 		IResource[] resources = new IResource[selection.size()];
 		selection.toArray(resources);
 		return resources;

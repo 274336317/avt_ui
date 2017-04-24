@@ -125,20 +125,20 @@ Require-Bundle: org.eclipse.core.resources,
  com.coretek.spte.i18n;bundle-version="1.0.0",
  com.coretek.common.utils.plugin;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: CORETEK
 Require-Bundle: com.coretek.common.i18n;bundle-version="1.0.0",
- org.eclipse.gef;bundle-version="3.4.1",
- org.eclipse.core.resources;bundle-version="3.5.0",
- org.eclipse.core.runtime;bundle-version="3.5.0",
- org.eclipse.ui;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0",
  com.coretek.common.template;bundle-version="1.0.0",
- org.eclipse.ui.editors;bundle-version="3.5.0",
  com.coretek.common.utils;bundle-version="1.0.0",
  com.coretek.testcase.unit;bundle-version="1.0.0",
  com.coretek.common.logging;bundle-version="1.0.0",
  com.coretek.spte.result.dataCompare;bundle-version="1.0.0",
  com.coretek.spte.monitor.manager;bundle-version="1.0.0",
  com.coretek.spte.data;bundle-version="1.0.0",
- com.coretek.spte.cfg;bundle-version="0.0.0"
+ com.coretek.spte.cfg;bundle-version="0.0.0",
+ org.eclipse.gef;bundle-version="3.7.2",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.ui.ide;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.ui.editors;bundle-version="3.7.0",
+ org.eclipse.core.runtime;bundle-version="3.7.0"

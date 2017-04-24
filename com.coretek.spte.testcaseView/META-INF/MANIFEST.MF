@@ -5,11 +5,7 @@ Bundle-SymbolicName: com.coretek.spte.testcaseView;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.coretek.testcase.testcaseview.TestCaseViewPlugin
 Bundle-Vendor: CORETEK
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- com.coretek.spte.core;bundle-version="1.0.0",
- org.eclipse.core.resources;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0",
+Require-Bundle: com.coretek.spte.core;bundle-version="1.0.0",
  com.coretek.spte.monitor.manager;bundle-version="1.0.0",
  com.coretek.common.template;bundle-version="1.0.0",
  com.coretek.common.logging;bundle-version="1.0.0",
@@ -18,10 +14,14 @@ Require-Bundle: org.eclipse.ui,
  com.coretek.spte.result.dataCompare;bundle-version="1.0.0",
  com.coretek.common.i18n;bundle-version="1.0.0",
  com.coretek.spte.monitor.ui;bundle-version="1.0.0",
- org.eclipse.gef;bundle-version="3.4.1",
  com.coretek.spte.common;bundle-version="1.0.0",
- com.coretek.spte.cfg;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+ com.coretek.spte.cfg;bundle-version="1.0.0",
+ org.eclipse.gef;bundle-version="3.7.2",
+ org.eclipse.ui.ide;bundle-version="3.7.0",
+ org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.core.runtime;bundle-version="3.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.coretek.testcase.report,
  com.coretek.testcase.testResult,

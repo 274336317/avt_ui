@@ -8,7 +8,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.osgi.framework.internal.core.FrameworkProperties;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -173,7 +172,7 @@ public class I18NWorkbenchPreferencePage extends PreferencePage implements IWork
 	protected void performApply()
 	{
 		this.getPreferenceStore().setValue(LANGUAGE, language.getName());
-		FrameworkProperties.setProperty("osgi.nl", language.getLocale().toString());
+		//FrameworkProperties.setProperty("osgi.nl", language.getLocale().toString());
 		super.performApply();
 		if (this.oldLanguage != this.language)
 		{

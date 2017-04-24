@@ -11,11 +11,11 @@ Require-Bundle: org.eclipse.ui,
  com.coretek.common.template;bundle-version="1.0.0",
  com.coretek.spte.monitor.ui;bundle-version="1.0.0",
  com.coretek.spte.monitor.manager;bundle-version="1.0.0",
- org.eclipse.core.resources;bundle-version="3.5.0",
  com.coretek.common.utils;bundle-version="1.0.0",
  com.coretek.common.i18n;bundle-version="1.0.0",
- com.coretek.spte.result.datahandler;bundle-version="1.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ com.coretek.spte.result.datahandler;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.7.101"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.coretek.spte.monitorlogview,
  com.coretek.spte.monitorlogview.actions,
