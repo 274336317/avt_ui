@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by MESMERiZE (MiZE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:element name="testCase">
+		<xs:annotation>
+			<xs:documentation>
+测试用例结构</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="version"/>
+				<xs:element ref="description"/>
+				<xs:element ref="ICD"/>
+				<xs:element ref="testObjects"/>
+				<xs:element ref="criterion" minOccurs="0"/>
+				<xs:element ref="messageBlock" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="refcase">
+		<xs:annotation>
+			<xs:documentation>用例引用结构定义</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="ref" type="xs:string" use="required"/>
+			<xs:attribute name="uuid" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="timeSpan">
+		<xs:annotation>
+			<xs:documentation>时间间隔定义</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+			<xs:attribute name="uuid" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="message">
+		<xs:annotation>
+			<xs:documentation>消息定义</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="messageContentType">
+					<xs:choice maxOccurs="unbounded">
+						<xs:element name="period" minOccurs="0">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element ref="field" maxOccurs="unbounded"/>
+								</xs:choice>
+								<xs:attribute name="value" type="xs:int"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element ref="field" maxOccurs="unbounded"/>
+					</xs:choice>
+					<xs:attributeGroup ref="messageAttribute"/>
+					<xs:attribute name="modelType" type="xs:string" use="required"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="description" type="DescriptionType">
+		<xs:annotation>
+			<xs:documentation>用例描述</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:attributeGroup name="fieldAttribute">
+		<xs:annotation>
+			<xs:documentation>消息字段属性定义</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="offsetword" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="offsetbit" type="xs:unsignedByte" use="required"/>
+		<xs:attribute name="width" type="xs:unsignedByte" use="required"/>
+		<xs:attribute name="lsb" type="xs:string" use="optional"/>
+		<xs:attribute name="msb" type="xs:string" use="optional"/>
+		<xs:attribute name="signed" type="xs:boolean" use="optional"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="messageAttribute">
+		<xs:annotation>
+			<xs:documentation>消息属性定义</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="topicId" type="xs:string" use="required"/>
+		<xs:attribute name="direction" type="DerictionType" use="required"/>
+		<xs:attribute name="uuid" type="xs:string" use="required"/>
+		<xs:attribute name="width" type="xs:unsignedByte" use="required"/>
+		<xs:attribute name="desId" type="xs:string" use="optional"/>
+		<xs:attribute name="srcId" type="xs:string" use="optional"/>
+		<xs:attribute name="periodDuration" type="xs:int" use="optional"/>
+		<xs:attribute name="periodCount" type="xs:int" use="optional" default="0"/>
+		<xs:attribute name="parallel" type="xs:boolean" use="optional"/>
+		<xs:attribute name="background" type="xs:boolean" use="optional"/>
+		<xs:attribute name="amendValue" type="xs:int" use="optional"/>
+		<xs:attribute name="sendDuration" type="xs:int" use="optional" default="0"/>
+	</xs:attributeGroup>
+	<xs:simpleType name="DerictionType">
+		<xs:annotation>
+			<xs:documentation>消息发送方向枚举定义
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="send"/>
+			<xs:enumeration value="recv"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="messageContentType">
+		<xs:annotation>
+			<xs:documentation>消息内容定义</xs:documentation>
+		</xs:annotation>
+	</xs:complexType>
+	<xs:element name="field">
+		<xs:annotation>
+			<xs:documentation>消息字段,消息字段可嵌套</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="field" maxOccurs="unbounded"/>
+				<xs:element name="value"/>
+			</xs:choice>
+			<xs:attributeGroup ref="fieldAttribute"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DescriptionType">
+		<xs:annotation>
+			<xs:documentation>用例描述结构</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="REQ" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>用例对应的需求编号
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="condition" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>先决条件
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="input" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>测试输入
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="expected" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>预期的测试结果
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="criterion" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>评价结果的准则
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="procedure" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>测试规程
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="restriction" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>假设和约束
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TestedObjectType">
+		<xs:annotation>
+			<xs:documentation>被测试对象结构类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="object" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string"/>
+					<xs:attribute name="id" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SimuObjectType">
+		<xs:annotation>
+			<xs:documentation>模拟对象结构类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="simuObject" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string"/>
+					<xs:attribute name="id" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="version" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>用例版本,用于与用例shcema和用例编辑器版本对应</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="testObjects" type="TestedObjectType">
+		<xs:annotation>
+			<xs:documentation>被测试对象定义</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="simuObjects" type="SimuObjectType">
+		<xs:annotation>
+			<xs:documentation>模拟对象定义</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ICD" type="ICDType">
+		<xs:annotation>
+			<xs:documentation>ICD信息</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ICDType">
+		<xs:annotation>
+			<xs:documentation>ICD信息结构定义</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="file" type="xs:string"/>
+			<xs:element name="version" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="criterion" type="CriterionType">
+		<xs:annotation>
+			<xs:documentation>判断准则定义</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CriterionType">
+		<xs:annotation>
+			<xs:documentation>判断准则类型定义</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="unexpected" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="messageBlock" type="MessageBlockType">
+		<xs:annotation>
+			<xs:documentation>消息块定义</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MessageBlockType">
+		<xs:annotation>
+			<xs:documentation>消息块结构定义</xs:documentation>
+		</xs:annotation>
+		<xs:group ref="MessageBlockTypeGroup" maxOccurs="unbounded"/>
+	</xs:complexType>
+	<xs:group name="MessageBlockTypeGroup">
+		<xs:choice>
+			<xs:element ref="message"/>
+			<xs:element ref="timeSpan" minOccurs="0"/>
+			<xs:element ref="refcase" minOccurs="0"/>
+		</xs:choice>
+	</xs:group>
+</xs:schema>

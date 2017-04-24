@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Rules version="" path="">
+	<Entities>
+		<Entity class="com.coretek.spte.Fighter" xmlName="机型" displayField="fighterType">
+			<!--实体的属性，属性可能是节点或者节点属性-->
+			<Attributes>
+				<!--type属性表明，实体的此属性在xml中是元素的属性还是元素的子节点type="node/attribute"-->
+				<Attribute name="fighterType" xmlName="机型名称" type="node" fieldType="String">
+			    </Attribute>
+				<Attribute name="fighterDescription" xmlName="机型描述" type="node" fieldType="String">
+			    </Attribute>
+			</Attributes>
+			<!--ICD中的子节点-->
+			<Children >
+				<Entity class="com.coretek.spte.LayerTotal" xmlName="层级个数">
+				    <!--实体的属性，属性可能是节点或者节点属性-->
+					<Attributes>
+						<!--type属性表明，实体的此属性在xml中是元素的属性还是元素的子节点type="node/attribute"-->
+						<!--fieldType表示属性的数据类型: byte Short Integer long fload double String。默认为String-->
+						<Attribute name="number" xmlName="NUM" type="attribute" fieldType="Integer">
+						</Attribute>
+					</Attributes>
+					<Children>
+						<!--层级信息-->
+					    <Entity class="com.coretek.spte.LayerInfo" xmlName="层级信息">
+							<Attributes>
+								<!--type属性表明，实体的此属性在xml中是元素的属性还是元素的子节点type="node/attribute"-->
+								<!--fieldType表示属性的数据类型: byte Short Integer long fload double String。默认为String-->
+								<!--display表示此属性是否需要将来被显示-->
+								<!--editable表示此属性是否可以被编辑-->
+								<Attribute name="layerName" xmlName="层级名称" type="node" fieldType="String" display="false" editable="false"/>
+							
+								<Attribute name="layer" xmlName="层级" type="node" fieldType="Integer" display="false" editable="false"/>
+					
+							    <Attribute name="layerCode" xmlName="层级编码" type="node" fieldType="String" display="false" editable="false"/>
+						        
+								<Attribute name="parentName" xmlName="父级名称" type="node" fieldType="String" display="false" editable="false"/>
+						        
+								<Attribute name="msgProperty" xmlName="消息属性" type="node" fieldType="String" display="false" editable="false"/>
+							</Attributes>
+					   </Entity>
+				    </Children>
+				</Entity>
+				<!--版本-->
+				<Entity class="com.coretek.spte.Version" xmlName="版本" displayField="versionName">
+					<Attributes>
+						<Attribute xmlName="版本编号" name="versionCode" type="node" fieldType="String"/>
+						<Attribute xmlName="版本名称" name="versionName" type="node" fieldType="String"/>
+						<Attribute xmlName="版本描述" name="versionDescription" type="node" fieldType="String"/>
+					</Attributes>
+					<Children>
+						<Entity class="com.coretek.spte.FunctionDomains" xmlName="功能域" >
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionDomain" xmlName="功能域" displayField="name">
+									<Attributes>
+										<Attribute xmlName="名称" name="name" type="node" fieldType="String"/>
+										<Attribute xmlName="ID" name="ID" type="node" fieldType="Integer"/>
+										<Attribute xmlName="缩略名" name="abbreviation" type="node" fieldType="String"/>
+									</Attributes>
+								</Entity>
+							</Children>
+
+						</Entity>
+						<!--功能域消息-->
+						<Entity class="com.coretek.spte.FunctionDomainMsgs" xmlName="功能域消息">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionDomainMsg" xmlName="功能域消息" displayField="msgTopicName">
+									<Attributes>
+										<Attribute xmlName="消息名"         name="msgName"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息ID"         name="msgID"            type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="上级消息ID"     name="parentMsgID"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="广播属性"       name="brocast"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="源功能ID"       name="sourceFunctionID" type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="消息主题名称"   name="msgTopicName"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息主题标识符" name="msgTopicSymbol"    type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输类型"   name="msgTransType"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输周期"   name="msgTransPeriod"    type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="周期单位"       name="periodUnit"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="最大传输延迟"   name="maxTranDelay"      type="node" fieldType="Double" display="true" editable="false"/>
+										<Attribute xmlName="延迟单位"       name="delayUnit"        type="node" fieldType="String" display="true" editable="false"/>
+									</Attributes>
+									<!--定义引用关系-->
+									<References>
+										<!--定义逻辑所属节点，用于显示他们之间的逻辑包含关系-->
+										<Reference name="logicParent" type="com.coretek.spte.FunctionDomain" condition="sourceFunctionID=ID"/>
+                                        <!--定义引用关系-->
+										<Reference name="topic" type="com.coretek.spte.Topic" condition="msgTopicSymbol=topicSymbol"/>
+									</References>
+									<Children>
+										<Entity class="com.coretek.spte.Destnations" xmlName="目的">
+											<Attributes>
+												<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+											</Attributes>
+											<Children>
+												<Entity class="com.coretek.spte.Destnation" xmlName="目的功能ID">
+													<Attributes>
+														<Attribute xmlName="destID" name="destID" type="text_node" fieldType="Integer"/>
+													</Attributes>
+												</Entity>
+											</Children>
+										</Entity>
+									</Children>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--功能子域-->
+						<Entity class="com.coretek.spte.FunctionSubDomains" xmlName="功能子域">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionSubDomain" xmlName="功能子域" displayField="name">
+									<Attributes>
+										<Attribute xmlName="名称" name="name" type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="ID" name="ID" type="node" fieldType="Integer"/>
+										<Attribute xmlName="缩略名" name="abbreviation" type="node" fieldType="String"/>
+										<Attribute xmlName="归属上级通信对象ID" name="parentID" type="node" fieldType="Integer"/>
+										<Attribute xmlName="归属上级通信对象标识符" name="parentSymbol" type="node" fieldType="String"/>
+									</Attributes>
+									<References>
+										<!--定义逻辑所属节点，用于显示他们之间的逻辑包含关系-->
+										<Reference name="logicParent" type="com.coretek.spte.FunctionDomain" condition="parentID=ID"/>
+									</References>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--功能子域消息-->
+						<Entity class="com.coretek.spte.FunctionSubDomainMsgs" xmlName="功能子域消息">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionSubDomainMsg" xmlName="功能子域消息" displayField="msgTopicName">
+									<Attributes>
+										<Attribute xmlName="消息名"         name="msgName"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息ID"         name="msgID"            type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="上级消息ID"     name="parentMsgID"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="广播属性"       name="brocast"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="源功能ID"       name="sourceFunctionID" type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="消息主题名称"   name="msgTopicName"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息主题标识符" name="msgTopicSymbol"    type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输类型"   name="msgTransType"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输周期"   name="msgTransPeriod"    type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="周期单位"       name="periodUnit"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="最大传输延迟"   name="maxTranDelay"      type="node" fieldType="Double" display="true" editable="false"/>
+										<Attribute xmlName="延迟单位"       name="delayUnit"        type="node" fieldType="String" display="true" editable="false"/>
+									</Attributes>
+									<!--定义引用关系-->
+									<References>
+										<!--定义逻辑所属节点，用于显示他们之间的逻辑包含关系-->
+										<Reference name="logicParent" type="com.coretek.spte.FunctionSubDomain" condition="sourceFunctionID=ID"/>
+                                        <!--定义上一级消息，用于显示他们之间的逻辑关系-->
+										<Reference name="parentMsg" type="com.coretek.spte.FunctionDomainMsg" condition="parentMsgID=msgID"/>
+										<!--定义引用关系-->
+										<Reference name="topic" type="com.coretek.spte.Topic" condition="msgTopicSymbol=topicSymbol"/>
+									</References>
+									<Children>
+										<Entity class="com.coretek.spte.Destnations" xmlName="目的">
+											<Attributes>
+												<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+											</Attributes>
+											<Children>
+												<Entity class="com.coretek.spte.Destnation" xmlName="目的功能ID">
+													<Attributes>
+														<Attribute xmlName="destID" name="destID" type="text_node" fieldType="Integer"/>
+													</Attributes>
+												</Entity>
+											</Children>
+										</Entity>
+									</Children>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--功能单元-->
+						<Entity class="com.coretek.spte.FunctionCells" xmlName="功能单元">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionCell" xmlName="功能单元" displayField="name">
+									<Attributes>
+										<Attribute xmlName="名称" name="name" type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="ID" name="ID" type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="缩略名" name="abbreviation" type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="归属上级通信对象ID" name="parentID" type="node" fieldType="Integer"/>
+										<Attribute xmlName="归属上级通信对象标识符" name="parentSymbol" type="node" fieldType="String"/>
+									</Attributes>
+									<References>
+										<!--定义逻辑从属关系-->
+										<Reference condition="parentID=ID" name="logicParent" type="com.coretek.spte.FunctionSubDomain"/>
+									</References>
+								</Entity>
+							</Children>
+						</Entity>
+						
+						<!--功能单元消息-->
+						<Entity class="com.coretek.spte.FunctionCellMsgs" xmlName="功能单元消息">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionCellMsg" xmlName="功能单元消息" displayField="msgTopicName">
+									<Attributes>
+										<Attribute xmlName="消息名"        name="msgName"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息ID"        name="msgID"            type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="上级消息ID"    name="parentMsgID"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="广播属性"      name="brocast"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="源功能ID"      name="sourceFunctionID" type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="消息主题名称"  name="msgTopicName"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息主题标识符" name="msgTopicSymbol"  type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输类型"  name="msgTransType"     type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输周期"  name="msgTransPeriod"   type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="周期单位"      name="periodUnit"       type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="最大传输延迟"  name="maxTranDelay"     type="node" fieldType="Double" display="true" editable="false"/>
+										<Attribute xmlName="延迟单位"      name="delayUnit"       type="node" fieldType="String" display="true" editable="false"/>
+									</Attributes>
+									<!--定义引用关系-->
+									<References>
+										<!--定义逻辑所属节点，用于显示他们之间的逻辑包含关系-->
+										<Reference name="logicParent" type="com.coretek.spte.FunctionCell" condition="sourceFunctionID=ID"/>
+                                        <!--定义上一级消息，用于显示他们之间的逻辑关系-->
+										<Reference name="parentMsg" type="com.coretek.spte.FunctionSubDomainMsg" condition="parentMsgID=msgID"/>
+										<Reference name="topic" type="com.coretek.spte.Topic" condition="msgTopicSymbol=topicSymbol"/>
+									</References>
+                                    <Children>
+										<Entity class="com.coretek.spte.Destnations" xmlName="目的">
+											<Attributes>
+												<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+											</Attributes>
+											<Children>
+												<Entity class="com.coretek.spte.Destnation" xmlName="目的功能ID">
+													<Attributes>
+														<Attribute xmlName="destID" name="destID" type="text_node" fieldType="Integer"/>
+													</Attributes>
+												</Entity>
+											</Children>
+										</Entity>
+									</Children>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--功能节点-->
+						<Entity class="com.coretek.spte.FunctionNodes" xmlName="功能节点">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.FunctionNode" xmlName="功能节点" displayField="name">
+									<Attributes>
+										<Attribute xmlName="名称"                  name="name"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="ID"                    name="ID"            type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="缩略名"                name="abbreviation" type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="归属上级通信对象ID"     name="parentID"     type="node" fieldType="Integer" />
+										<Attribute xmlName="归属上级通信对象标识符"  name="parentSymbol" type="node" fieldType="String"/>
+									</Attributes>
+									<References>
+										<!--定义逻辑从属关系-->
+										<Reference condition="parentID=ID" name="logicParent" type="com.coretek.spte.FunctionSubDomain"/>
+									</References>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--功能节点消息-->
+						<Entity class="com.coretek.spte.FunctionNodeMsgs" xmlName="功能节点消息">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<!--dragable用于标识类在消息视图中是否可以被拖拽-->
+								<Entity class="com.coretek.spte.FunctionNodeMsg" xmlName="功能节点消息" displayField="msgTopicName" dragable="true">
+									<Attributes>
+										<Attribute xmlName="消息名"         name="msgName"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息ID"         name="msgID"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="上级消息ID"     name="parentMsgID"     type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="广播属性"       name="brocast"         type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="源功能ID"       name="sourceFunctionID" type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="消息主题名称"    name="msgTopicName"    type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息主题标识符"  name="msgTopicSymbol"  type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输类型"    name="msgTransType"    type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="消息传输周期"    name="msgTransPeriod"  type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="周期单位"        name="periodUnit"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="最大传输延迟"    name="maxTransDelay"    type="node" fieldType="Double" display="true" editable="false"/>
+										<Attribute xmlName="延迟单位"        name="delayUnit"      type="node" fieldType="String" display="true" editable="false"/>
+									</Attributes>
+									<Children>
+										<Entity class="com.coretek.spte.Destnations" xmlName="目的">
+											<Attributes>
+												<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+											</Attributes>
+											<Children>
+												<Entity class="com.coretek.spte.Destnation" xmlName="目的功能ID">
+													<Attributes>
+														<Attribute xmlName="destID" name="destID" type="text_node" fieldType="Integer"/>
+													</Attributes>
+												</Entity>
+											</Children>
+										</Entity>
+									</Children>
+									<!--引用的其它对象-->
+									<References>
+										<!--定义逻辑所属节点，用于显示他们之间的逻辑包含关系-->
+										<Reference name="logicParent" type="com.coretek.spte.FunctionNode" condition="sourceFunctionID=ID"/>
+										<!--定义上一级消息，用于显示他们之间的逻辑关系-->
+										<Reference name="parentMsg" type="com.coretek.spte.FunctionSubDomainMsg" condition="parentMsgID=msgID"/>
+										<!--定义引用关系-->
+										<Reference name="topic" type="com.coretek.spte.Topic" condition="msgTopicSymbol=topicSymbol"/>
+									</References>
+								</Entity>
+							</Children>
+						</Entity>
+					   <!--主题-->
+						<Entity class="com.coretek.spte.Topics" xmlName="主题">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.Topic" xmlName="主题" displayField="topicName">
+									<Attributes>
+										<Attribute xmlName="主题ID"     name="topicID"          type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="主题名称"   name="topicName"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="主题标识符" name="topicSymbol"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="主题类型"   name="topicType"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="格式类型"   name="formatType"       type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="数据长度"   name="dataLength"       type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="主题描述"   name="topicDescription" type="node" fieldType="String" display="true" editable="false"/>
+									</Attributes>
+									<Children>
+										<Entity class="com.coretek.spte.ContainedSignals" xmlName="包含信号">
+											<Children>
+												<Entity class="com.coretek.spte.ContainedSignal" xmlName="信号" displayField="signalName">
+													<Attributes>
+														<Attribute xmlName="信号名称"   name="signalName"   type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="信号标识符" name="signalSymbol" type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="信号组标志" name="signalGroupSymbol"    type="node" fieldType="Integer" display="true" editable="false"/>
+														<Attribute xmlName="LSB"       name="LSB"          type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="MSB"       name="MSB"           type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="单位代码"  name="unitCode"       type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="起始字"    name="startWord"     type="node" fieldType="Integer" display="true" editable="false"/>
+														<Attribute xmlName="起始位"    name="startBit"      type="node" fieldType="Integer" display="true" editable="false"/>
+													</Attributes>
+                                                    <Children>
+														<Entity class="com.coretek.spte.topic.ContainedSignals" xmlName="包含信号">
+															<Children>
+																<Entity class="com.coretek.spte.topic.ContainedSignal" xmlName="信号" displayField="signalName">
+																	<Attributes>
+																		<Attribute xmlName="信号名称"   name="signalName"  type="node" fieldType="String" display="true" editable="false"/>
+																		<Attribute xmlName="信号标识符" name="signalSymbol" type="node" fieldType="String" display="true" editable="false"/>
+																		<Attribute xmlName="LSB"       name="LSB"          type="node" fieldType="String" display="true" editable="false"/>
+																		<Attribute xmlName="MSB"       name="MSB"          type="node" fieldType="String" display="true" editable="false"/>
+																		<Attribute xmlName="单位代码"  name="unitCode"     type="node" fieldType="String" display="true" editable="false"/>
+																		<Attribute xmlName="起始字"    name="startWord"    type="node" fieldType="Integer" display="true" editable="false"/>
+																		<Attribute xmlName="起始位"    name="startBit"     type="node" fieldType="Integer" display="true" editable="false"/>
+																	</Attributes>
+																	<!--引用信号对象-->
+																	<References>
+																		<Reference condition="signalSymbol=signalSymbol" name="signal" type="com.coretek.spte.Signal"/>
+																	</References>
+																</Entity>
+															</Children>
+														</Entity>
+													</Children>
+													<!--引用信号对象-->
+													<References>
+														<Reference condition="signalSymbol=signalSymbol" name="signal" type="com.coretek.spte.Signal"/>
+													</References>
+												</Entity>
+											</Children>
+										</Entity>
+									</Children>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--信号-->
+						<Entity class="com.coretek.spte.Signals" xmlName="信号">
+							<Attributes>
+								<Attribute xmlName="NUM" name="number" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<Children>
+								<Entity class="com.coretek.spte.Signal" xmlName="信号">
+									<Attributes>
+										<Attribute xmlName="信号ID"       name="signalID"          type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="信号名称"     name="signalName"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="信号标识符"   name="signalSymbol"      type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="信号类型"     name="signalType"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="是否有符号"   name="unsigned"          type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="信号长度"     name="signalLength"      type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="信号数组长度" name="signalArrayLength" type="node" fieldType="Integer" display="true" editable="false"/>
+										<Attribute xmlName="信号单位"     name="signalUnit"        type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="信号最小值"   name="signalMinValue"    type="node" fieldType="Double" display="true" editable="false"/>
+										<Attribute xmlName="信号最大值"   name="signalMaxValue"    type="node" fieldType="Double" display="true" editable="false"/>
+										<Attribute xmlName="最高有效位"   name="highestBitValue"   type="node" fieldType="String" display="true" editable="false"/>
+										<Attribute xmlName="最低有效位"   name="lowestBitValue"    type="node" fieldType="String" display="true" editable="false"/>
+									</Attributes>
+									<Children>
+										<Entity class="com.coretek.spte.EnumValueAndKey" xmlName="枚举值对">
+											<Children>
+												<Entity class="com.coretek.spte.EnumBean" xmlName="枚举">
+													<Attributes>
+														<Attribute xmlName="值" name="value" type="attribute" fieldType="Integer"/>
+														<Attribute xmlName="标识符" name="symbol" type="attribute" fieldType="String"/>
+													</Attributes>
+												</Entity>
+
+											</Children>
+										</Entity>
+										<!--包含信号-->
+										<Entity class="com.coretek.spte.singal.ContainedSignals" xmlName="包含信号">
+											<Children>
+												<Entity class="com.coretek.spte.singal.ContainedSignal" xmlName="信号">
+													<Attributes>
+														<Attribute xmlName="信号名称"   name="signalName"   type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="信号标识符" name="signalSymbol" type="node" fieldType="String" display="true" editable="false"/>
+														<Attribute xmlName="起始字"     name="startWord"    type="node" fieldType="Integer" display="true" editable="false"/>
+														<Attribute xmlName="起始位"     name="startBit"     type="node" fieldType="Integer" display="true" editable="false"/>
+													</Attributes>
+													<!--引用信号对象-->
+													<References>
+														<Reference condition="signalSymbol=signalSymbol" name="signal" type="com.coretek.spte.Signal"/>
+													</References>
+												</Entity>
+											</Children>
+										</Entity>
+									</Children>
+								</Entity>
+							</Children>
+						</Entity>
+					</Children>
+				</Entity>
+			</Children>
+		</Entity>
+	</Entities>
+</Rules>

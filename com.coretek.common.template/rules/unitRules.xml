@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Rules version="" path="">
+	<Entities>
+		<Entity class="com.coretek.spte.unit.ExportedUnits" xmlName="单位导出">
+			<Children>
+				<Entity class="com.coretek.spte.unit.UnitType" xmlName="单位类型">
+					<Attributes>
+						<Attribute name="ID" xmlName="ID" type="attribute" fieldType="Integer"/>
+						<Attribute name="name" xmlName="名称" type="attribute" fieldType="String"/>
+					</Attributes>
+					<Children>
+						<Entity class="com.coretek.spte.unit.Unit" xmlName="单位">
+							<Attributes>
+								<Attribute name="ID" xmlName="ID" type="node" fieldType="Integer"/>
+								<Attribute name="name" xmlName="名称" type="node" fieldType="String"/>
+								<Attribute name="displayName" xmlName="显示名称" type="node" fieldType="String"/>
+							</Attributes>
+						</Entity>
+					</Children>
+				</Entity>
+			</Children>
+		</Entity>
+
+	</Entities>
+</Rules>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--此规则用于描述测试用例 Powered by David-->
+<Rules version="" path="">
+	<Entities>
+	<Entity class="com.coretek.spte.testcase.TestCase" xmlName="testCase" superClazz="com.coretek.common.template.XMLBean">
+	<Attributes>
+		<Attribute xmlName="name" name="name" type="attribute" fieldType="String"/>
+		<Attribute xmlName="version" name="version" type="node" fieldType="String"/>
+	</Attributes>
+	<Children>
+		<!--用例描述-->
+	    <Entity class="com.coretek.spte.testcase.CaseDescription" xmlName="description" superClazz="com.coretek.common.template.XMLBean" >
+			<Attributes>
+				<!--对应需求编号-->
+				<Attribute xmlName="REQ" name="REQ" type="node" fieldType="String"/>
+				<!--先决条件-->
+				<Attribute xmlName="condition" name="condition" type="node" fieldType="String"/>
+				<!--测试输入-->
+				<Attribute xmlName="input" name="input" type="node" fieldType="String"/>
+				<!--预期的测试结果-->
+				<Attribute xmlName="expected" name="expected" type="node" fieldType="String"/>
+				<!--评价结果的准则-->
+				<Attribute xmlName="criterion" name="criterion" type="node" fieldType="String"/>
+				<!--测试规程-->
+				<Attribute xmlName="procedure" name="procedure" type="node" fieldType="String"/>
+				<!--假设和约束-->
+				<Attribute xmlName="restriction" name="restriction" type="node" fieldType="String"/>
+			</Attributes>
+		</Entity>
+		<!--ICD信息-->
+		<Entity class="com.coretek.spte.testcase.ICDFile" xmlName="ICD" superClazz="com.coretek.common.template.XMLBean">
+			<Attributes>
+				<Attribute xmlName="file" name="file" type="node" fieldType="String"/>
+				<Attribute xmlName="version" name="version" type="node" fieldType="String"/>
+				<Attribute xmlName="md5" name="MD5" type="node" fieldType="String"/>
+			</Attributes>
+		</Entity>
+		<!--被测对象集合-->
+		<Entity class="com.coretek.spte.testcase.TestedObjects" xmlName="testObjects" superClazz="com.coretek.common.template.XMLBean">
+			<Attributes>
+				<Attribute xmlName="level" name="level" type="attribute" fieldType="String"/>
+			</Attributes>
+			<Children>
+				<!--被测对象-->
+				<Entity class="com.coretek.spte.testcase.TestedObject" xmlName="object" superClazz="com.coretek.common.template.XMLBean">
+					<Attributes>
+						<Attribute xmlName="name" name="name" type="attribute" fieldType="String"/>
+					    <Attribute xmlName="id" name="id" type="attribute" fieldType="String"/>
+					</Attributes>
+				</Entity>
+			</Children>
+		</Entity>
+		<!--模拟节点集合-->
+		<Entity class="com.coretek.spte.testcase.SimuObjects" xmlName="simuObjects" superClazz="com.coretek.common.template.XMLBean">
+		    <Children>
+		    	<!--模拟节点-->
+			    <Entity class="com.coretek.spte.testcase.SimuObject" xmlName="simuObject" superClazz="com.coretek.common.template.XMLBean">
+			        <Attributes>
+			        <Attribute xmlName="id" type="attribute" fieldType="String"/>
+			        <Attribute xmlName="name" type="attribute" fieldType="String"/>
+			        </Attributes>
+			    </Entity>
+		    </Children>
+		</Entity>
+		<!--当接收到未预期的消息时的判定准则-->
+		<Entity xmlName="criterion" class="com.coretek.spte.testcase.Criterion" superClazz="com.coretek.common.template.XMLBean">
+			<Attributes>
+				<Attribute xmlName="unexpected" name="unexpected" type="node" fieldType="String"/>
+			</Attributes>
+		</Entity>
+		<!--标签对象结合-->
+		<Entity xmlName="postils" class="com.coretek.spte.testcase.Postils" superClazz="com.coretek.common.template.XMLBean">
+			<Children>
+				<Entity xmlName="postil" class="com.coretek.spte.testcase.Postil" superClazz="com.coretek.common.template.XMLBean">
+					<Attributes>
+				         <Attribute xmlName="x" name="x" type="attribute" fieldType="Integer"/>
+						 <Attribute xmlName="y" name="y" type="attribute" fieldType="Integer"/>
+						 <Attribute xmlName="width" name="width" type="attribute" fieldType="Integer"/>
+						 <Attribute xmlName="high" name="high" type="attribute" fieldType="Integer"/>
+						 <Attribute xmlName="uuid" fieldType="String" name="uuid" type="attribute"/>
+			        </Attributes>
+					<Children>
+						<Entity xmlName="postilChild" class="com.coretek.spte.testcase.PostilChild" superClazz="com.coretek.common.template.XMLBean">
+							<Attributes>
+								<Attribute xmlName="x" name="x" type="attribute" fieldType="Integer"/>
+						        <Attribute xmlName="y" name="y" type="attribute" fieldType="Integer"/>
+						        <Attribute xmlName="width" name="width" type="attribute" fieldType="Integer"/>
+						        <Attribute xmlName="high" name="high" type="attribute" fieldType="Integer"/>
+						        <Attribute xmlName="text" fieldType="String" name="text" type="node"/>
+							</Attributes>
+						</Entity>
+					</Children>
+				</Entity>
+			</Children>
+		</Entity>
+		<!--消息块定义-->
+		<Entity xmlName="messageBlock" class="com.coretek.spte.testcase.MessageBlock" superClazz="com.coretek.common.template.XMLBean">
+			<Children>
+				<!--消息间隔-->
+				<Entity xmlName="timeSpan" class="com.coretek.spte.testcase.TimeSpan" superClazz="com.coretek.common.template.XMLBean">
+					<Attributes>
+						<Attribute xmlName="value" fieldType="String" name="value" type="attribute"/>
+						<Attribute xmlName="uuid" fieldType="String" name="uuid" type="attribute"/>
+					</Attributes>
+				</Entity>
+				<!--引用用例-->
+				<Entity xmlName="refcase" class="com.coretek.spte.testcase.RefCase" superClazz="com.coretek.common.template.XMLBean">
+					<Attributes>
+						<Attribute xmlName="ref" fieldType="String" name="value" type="attribute"/>
+						<Attribute xmlName="uuid" fieldType="String" name="uuid" type="attribute"/>
+					</Attributes>
+				</Entity>
+				<!--消息-->
+				<Entity class="com.coretek.spte.testcase.Message" xmlName="message" superClazz="com.coretek.common.template.XMLBean">
+					<Attributes>
+						<Attribute xmlName="amendValue" name="amendValue" type="attribute" fieldType="String"/>
+					    <Attribute xmlName="topicId"     name="topicId" type="attribute" fieldType="String"/>
+						<Attribute xmlName="srcId"         name="srcId" type="attribute" fieldType="String"/>
+						<Attribute xmlName="sendDuration"   name="sendDuration" type="attribute" fieldType="Integer"/>
+					    <Attribute xmlName="periodCount"    name="periodCount" type="attribute" fieldType="Integer"/>
+						<Attribute xmlName="periodDuration" name="periodDuration" type="attribute" fieldType="Integer"/>
+						<Attribute xmlName="name"           name="name" type="attribute" fieldType="String"/>
+						<Attribute xmlName="direction"      name="direction" type="attribute" fieldType="String"/>
+						<Attribute xmlName="background"     name="background" type="attribute" fieldType="Boolean"/>
+						<Attribute xmlName="id"             name="id" type="attribute" fieldType="String"/>
+						<Attribute xmlName="width"          name="width" type="attribute" fieldType="Integer"/>
+						<Attribute xmlName="desId"           name="desId" type="attribute" fieldType="String"/>
+						<Attribute xmlName="parallel"        name="parallel" type="attribute" fieldType="Boolean"/>
+						<Attribute xmlName="uuid"            name="uuid" type="attribute" fieldType="String"/>
+						<Attribute xmlName="modelType"       name="modelType" type="attribute" fieldType="String"/>
+					</Attributes>
+					<Children>
+						<!--周期-->
+						<Entity class="com.coretek.spte.testcase.Period" xmlName="period" superClazz="com.coretek.common.template.XMLBean">
+							<Attributes>
+								<Attribute xmlName="value" name="value" type="attribute" fieldType="Integer"/>
+							</Attributes>
+							<!--周期中包含的信号-->
+							<Children>
+								<!--信号-->
+								<Entity class="com.coretek.spte.testcase.Field" xmlName="field" superClazz="com.coretek.common.template.XMLBean">
+									<Attributes>
+										<Attribute xmlName="msb"        fieldType="String" name="msb"         type="attribute"/>
+										<Attribute xmlName="lsb"        fieldType="String" name="lsb"         type="attribute"/>
+										<Attribute xmlName="signed"     fieldType="Boolean" name="signed"     type="attribute"/>
+										<Attribute xmlName="offsetword" fieldType="Integer" name="offsetword" type="attribute"/>
+										<Attribute xmlName="name"       fieldType="String" name="name"        type="attribute"/>
+										<Attribute xmlName="id"         fieldType="String" name="id"          type="attribute"/>
+										<Attribute xmlName="width"      fieldType="Integer" name="width"      type="attribute"/>
+										<Attribute xmlName="offsetbit"  fieldType="Integer" name="offsetbit"     type="attribute"/>
+										<Attribute xmlName="value"      fieldType="String" name="value"       type="node"/>
+									</Attributes>
+									<Children>
+										<!--信号。自包含-->
+										<Entity class="com.coretek.spte.testcase.Field" xmlName="field" superClazz="com.coretek.common.template.XMLBean">
+										</Entity>
+									</Children>
+								</Entity>
+							</Children>
+						</Entity>
+						<!--信号-->
+						<Entity class="com.coretek.spte.testcase.Field" xmlName="field" superClazz="com.coretek.common.template.XMLBean">
+							<Attributes>
+								<Attribute xmlName="msb" fieldType="String" name="msb" type="attribute"/>
+								<Attribute xmlName="lsb" fieldType="String" name="lsb" type="attribute"/>
+								<Attribute xmlName="signed" fieldType="Boolean" name="signed" type="attribute"/>
+								<Attribute xmlName="offsetword" fieldType="Integer" name="offsetword" type="attribute"/>
+								<Attribute xmlName="name" fieldType="String" name="name" type="attribute"/>
+								<Attribute xmlName="id" fieldType="String" name="id" type="attribute"/>
+								<Attribute xmlName="width" fieldType="Integer" name="width" type="attribute"/>
+								<Attribute xmlName="offset" fieldType="Integer" name="offset" type="attribute"/>
+								<Attribute xmlName="value" fieldType="String" name="value" type="node"/>
+							</Attributes>
+							<Children>
+								<!--信号。自包含-->
+								<Entity class="com.coretek.spte.testcase.Field" xmlName="field" superClazz="com.coretek.common.template.XMLBean">
+								</Entity>
+							</Children>
+						</Entity>
+					</Children>
+				</Entity>
+			</Children>
+		</Entity>
+	</Children>
+</Entity>
+</Entities>
+</Rules>
